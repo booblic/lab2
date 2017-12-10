@@ -8,18 +8,18 @@ public class Salt extends Ingredients {
 
     private String unit = "кг";
 
-    private static double unitQuantity;
+    private double unitQuantity;
 
     public Salt(double price, double unitQuantity) {
         super(price);
-        Salt.unitQuantity = unitQuantity;
+        this.unitQuantity = unitQuantity;
     }
 
     public double getUnitQuantity() {
         return unitQuantity;
     }
 
-    public static void setUnitQuantity(double changeQuantity) throws NegativeIngredientsQuantityException {
+    public void setUnitQuantity(double changeQuantity) throws NegativeIngredientsQuantityException {
         if (unitQuantity + changeQuantity < 0) {
             throw new NegativeIngredientsQuantityException("Не хватает " + String.format("%.2f", - unitQuantity - changeQuantity) + " кг соли!");
         }

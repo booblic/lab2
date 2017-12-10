@@ -1,6 +1,5 @@
 package lab2.bakery.products;
 
-import lab2.bakery.exception.NegativeIngredientsQuantityException;
 import lab2.bakery.exception.NegativeProductsQuantityException;
 
 public class Bread extends Products {
@@ -13,10 +12,6 @@ public class Bread extends Products {
 
     public Bread() {}
 
-    //public Bread(int quantityBread) {
-        //Bread.quantityBread = quantityBread;
-    //}
-
     public String getName() {
         return name;
     }
@@ -25,7 +20,7 @@ public class Bread extends Products {
         return unit;
     }
 
-    public static int getQuantity() {
+    public int getQuantity() {
         return quantityBread;
     }
 

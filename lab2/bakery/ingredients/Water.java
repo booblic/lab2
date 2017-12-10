@@ -8,18 +8,18 @@ public class Water extends Ingredients {
 
     private String unit = "л";
 
-    private static double unitQuantity;
+    private double unitQuantity;
 
     public Water(double price, double unitQuantity) {
         super(price);
-        Water.unitQuantity = unitQuantity;
+        this.unitQuantity = unitQuantity;
     }
 
     public double getUnitQuantity() {
         return unitQuantity;
     }
 
-    public static void setUnitQuantity(double changeQuantity) throws NegativeIngredientsQuantityException {
+    public void setUnitQuantity(double changeQuantity) throws NegativeIngredientsQuantityException {
         if (unitQuantity + changeQuantity < 0) {
             throw new NegativeIngredientsQuantityException("Не хватает " + String.format("%.2f", - unitQuantity - changeQuantity) + " л воды!");
         }

@@ -1,7 +1,5 @@
 package lab2.bakery.menu;
 
-import lab2.bakery.constant.ClassOfConstant;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

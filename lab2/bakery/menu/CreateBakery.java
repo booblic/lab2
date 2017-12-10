@@ -3,10 +3,11 @@ package lab2.bakery.menu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 
 import lab2.bakery.accounting.Accounting;
-import lab2.bakery.accounting.SingletoneAccounting;
-import lab2.bakery.constant.ClassOfConstant;
+import lab2.bakery.annotation.MinFund;
+import lab2.bakery.constants.Constants;
 import lab2.bakery.exception.NegativeAccountBalanceException;
 
 /**
@@ -37,10 +38,18 @@ public class CreateBakery extends MenuEntry {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            System.out.print(ClassOfConstant.ENTR_MENU_POINT);
+            System.out.print(Constants.ENTR_MENU_POINT);
             money = Integer.parseInt(reader.readLine());
 
-            SingletoneAccounting.getAccounting(money);
+            Method method = Accounting.class.getDeclaredMethod("setMoney", double.class);
+            if (method.isAnnotationPresent(MinFund.class)) {
+                if (money < method.getAnnotation(MinFund.class).value()) {
+                    System.out.println("Минимальный стартовый капитал 1000 рублей!");
+                    Accounting.setMoney(method.getAnnotation(MinFund.class).value());
+                } else {
+                    Accounting.setMoney(money);
+                }
+            }
 
             System.out.println();
         } catch (IOException e) {
@@ -48,12 +57,14 @@ public class CreateBakery extends MenuEntry {
         } catch (NumberFormatException e) {
             System.out.println("Неверный ввод!");
             return;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
         } catch (NegativeAccountBalanceException e) {
             System.out.println(e.getMessage());
             return;
         }
 
-        System.out.println("Баланс счета: " + SingletoneAccounting.getAccounting().getMoney());
+        System.out.println("Баланс счета: " + Accounting.getMoney());
 
         Menu.deleteEntry("Создасть хлебзавод.");
 

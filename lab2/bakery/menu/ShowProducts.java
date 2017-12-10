@@ -1,7 +1,9 @@
 package lab2.bakery.menu;
 
-import lab2.bakery.products.Bread;
-import lab2.bakery.products.SingletonProducts;
+import lab2.bakery.annotation.DefaultPrice;
+import lab2.bakery.products.*;
+
+import java.lang.reflect.Method;
 
 public class ShowProducts extends MenuEntry {
     /**
@@ -15,10 +17,23 @@ public class ShowProducts extends MenuEntry {
 
     public void run() {
 
+        if (SingletonProducts.getBread().getPrice() == 0) {
+            Method method = null;
+            try {
+                method = Products.class.getDeclaredMethod("getPrice");
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+            if (method.isAnnotationPresent(DefaultPrice.class)) {
+                SingletonProducts.getBread().setPrice(method.getAnnotation(DefaultPrice.class).value());
+            }
+        }
+
         System.out.println("Склад готовой продукции\n");
 
-        Bread bread = new Bread();
-        System.out.println(bread.getName() + ": " + bread.getQuantity() + " " + bread.getUnit());
+        DecoratorProducts decoratorProducts = new DecoratorProductsMoney(SingletonProducts.getBread());
+
+        System.out.println("Общая стоимость хлеба " + decoratorProducts.getQuantity() + " рублей");
 
     }
 }

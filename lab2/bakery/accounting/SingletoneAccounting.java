@@ -1,4 +1,4 @@
-package lab2.bakery.accounting;
+/*package lab2.bakery.accounting;
 
 import lab2.bakery.exception.NegativeAccountBalanceException;
 
@@ -21,4 +21,4 @@ public class SingletoneAccounting {
         return accounting;
     }
 
-}
+}*/

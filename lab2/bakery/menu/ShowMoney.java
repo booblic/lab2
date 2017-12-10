@@ -1,7 +1,6 @@
 package lab2.bakery.menu;
 
 import lab2.bakery.accounting.Accounting;
-import lab2.bakery.accounting.SingletoneAccounting;
 
 public class ShowMoney extends MenuEntry {
     /**
@@ -15,7 +14,7 @@ public class ShowMoney extends MenuEntry {
 
     public void run() {
 
-        System.out.println("Текущий баланс счет: " + SingletoneAccounting.getAccounting().getMoney());
+        System.out.println("Текущий баланс счет: " + Accounting.getMoney());
 
     }
 }

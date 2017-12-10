@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import lab2.bakery.constant.ClassOfConstant;
+import lab2.bakery.constants.Constants;
 
 /**
  * Класс для работы с меню
@@ -111,7 +111,7 @@ public class Menu {
         for (int i = 0; i < entries.size(); i++) {
 
             MenuEntry entry = entries.get(i);
-            String entryFormatted = String.format(ClassOfConstant.MENU_PATTERN, (i + 1), entry.getTitle());
+            String entryFormatted = String.format(Constants.MENU_PATTERN, (i + 1), entry.getTitle());
             buffer.append(entryFormatted);
         }
         System.out.print(buffer.toString());

@@ -38,13 +38,7 @@ public class OvenControls<T extends Products> extends Controller {
                 Method method = productClass.getMethod("setQuantity", int.class);
                 method.setAccessible(true);
                 method.invoke(productClass.newInstance(), quantity);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

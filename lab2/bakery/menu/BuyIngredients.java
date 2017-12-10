@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import lab2.bakery.accounting.SingletoneAccounting;
+import lab2.bakery.accounting.Accounting;
 import lab2.bakery.exception.NegativeAccountBalanceException;
 import lab2.bakery.exception.NegativeIngredientsQuantityException;
 import lab2.bakery.ingredients.SingletoneIngredients;
@@ -18,7 +18,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import static lab2.bakery.accounting.SingletoneAccounting.*;
 import static lab2.bakery.ingredients.SingletoneIngredients.*;
 
 /**
@@ -83,7 +82,7 @@ public class BuyIngredients extends MenuEntry {
                             throw new NumberFormatException();
                         }
 
-                        getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getFlour(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -99,7 +98,8 @@ public class BuyIngredients extends MenuEntry {
                             throw new NumberFormatException();
                         }
 
-                        getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getWater(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -115,7 +115,8 @@ public class BuyIngredients extends MenuEntry {
                             throw new NumberFormatException();
                         }
 
-                        getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getSalt(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -131,7 +132,8 @@ public class BuyIngredients extends MenuEntry {
                             throw new NumberFormatException();
                         }
 
-                        getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getVegetableOil(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -147,7 +149,8 @@ public class BuyIngredients extends MenuEntry {
                             throw new NumberFormatException();
                         }
 
-                        getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
+                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getYeast(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 

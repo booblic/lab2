@@ -1,14 +1,23 @@
 package lab2.bakery.products;
 
-public class Products {
+import lab2.bakery.annotation.DefaultPrice;
 
-     private double price;
+public abstract class Products {
 
-     public double getPrice() {
+    private double price;
+
+    @DefaultPrice
+    public double getPrice() {
          return price;
      }
 
-     public void setPrice(double newPrice) {
+    public void setPrice(double newPrice) {
          this.price = newPrice;
      }
+
+    public abstract int getQuantity();
+
+    public abstract String getName();
+
+    public abstract String getUnit();
 }

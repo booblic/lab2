@@ -1,6 +1,5 @@
 package lab2.bakery.ingredients;
 
-import lab2.bakery.accounting.SingletoneAccounting;
 import lab2.bakery.exception.NegativeIngredientsQuantityException;
 
 public class SingletoneIngredients {

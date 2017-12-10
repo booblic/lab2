@@ -2,7 +2,7 @@ package lab2.bakery.ingredients;
 
 public abstract class Ingredients {
 
-    private static double unitPrice;
+    private double unitPrice;
 
     public Ingredients(double unitPrice) {
         this.unitPrice = unitPrice;
@@ -12,7 +12,7 @@ public abstract class Ingredients {
         return unitPrice;
     }
 
-    public static void setUnitePrice(double newUnitePrice) {
+    public void setUnitePrice(double newUnitePrice) {
         unitPrice = newUnitePrice;
     }
 
