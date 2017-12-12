@@ -55,7 +55,6 @@ public class SingletoneIngredients {
      * @param unitPrice - цена единицы ингредиента
      * @param unitQuantity - количество единиц ингредиента
      * @return  flour - экземпляр ингредиента - мука
-     * @throws NegativeIngredientsQuantityException - отрицательное количество ингредиентов
      */
     public static Flour getFlour(double unitPrice, double unitQuantity) throws NegativeIngredientsQuantityException {
         if (flour == null) {
@@ -83,7 +82,6 @@ public class SingletoneIngredients {
      * @param unitPrice - цена единицы ингредиента
      * @param unitQuantity - количество единиц ингредиента
      * @return  salt - экземпляр ингредиента - соль
-     * @throws NegativeIngredientsQuantityException - отрицательное количество ингредиентов
      */
     public static Salt getSalt(double unitPrice, double unitQuantity) throws NegativeIngredientsQuantityException {
         if (salt == null) {

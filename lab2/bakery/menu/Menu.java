@@ -73,7 +73,6 @@ public class Menu {
     /**
      * Метод для добавления пункта меню в коллекцию
      * @param entry - новый пункт меню
-     * @return объект класса производный от абстактного класса MenuEntry, соответствующий пункту меню
      */
     public static void addEntry(MenuEntry entry) {
 

@@ -78,7 +78,7 @@ public class OvenControls<T extends Products> extends Controller {
          * Метод, выводящий сообщение о том, что событие завершено
          */
         public String toString() {
-            return "Испечено " + quantity + " единиц продукциии";
+            return "Произведено " + quantity + " единиц продукциии";
         }
     }
 

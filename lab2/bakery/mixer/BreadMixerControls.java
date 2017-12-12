@@ -124,7 +124,6 @@ public class BreadMixerControls extends Controller {
 
         /**
          * Метод, забирающий со склада неоюходимое количество ингредиентов
-         * @throws NegativeIngredientsQuantityException - недостаточно ингредиентов на складе
          */
         public void action() throws NegativeIngredientsQuantityException {
 
@@ -143,7 +142,7 @@ public class BreadMixerControls extends Controller {
          * Метод, выводящий сообщение о том, что событие завершено
          */
         public String toString() {
-            return "Ингредиенты для замешиывания " + quantityBread + " буханок хлеба получены";
+            return "Компоненты для замешиывания " + quantityBread + " буханок хлеба получены";
         }
     }
 

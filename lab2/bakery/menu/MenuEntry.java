@@ -22,7 +22,7 @@ public abstract class MenuEntry {
 
     /**
      * Метод возвращающий название пункта меню
-     * @return
+     * @return title - название пункта меню
      */
     public String getTitle() {
         return title;

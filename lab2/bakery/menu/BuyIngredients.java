@@ -170,7 +170,7 @@ public class BuyIngredients extends MenuEntry {
 
         Menu.addEntry(new ShowIngredients("Посмотреть количество ингредиентов."));
 
-        Menu.addEntry(new BreadCreator("Испечь хлеб"));
+        Menu.addEntry(new BreadCreator("Создать хлеб"));
 
     }
 }
