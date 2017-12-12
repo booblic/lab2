@@ -17,7 +17,7 @@ public class Accounting {
     private static double money;
 
     /**
-     * Метод, для получения к балансу счета
+     * Метод для получения баланса счета
      * @return money - баланс счета
      */
     public static double getMoney() {
@@ -25,7 +25,7 @@ public class Accounting {
     }
 
     /**
-     * Метод, для изменения баланса счета
+     * Метод для изменения баланса счета
      * @param changeMoney - число, на которое нужно изменить баланс счета
      */
     @MinFund

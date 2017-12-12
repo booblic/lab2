@@ -37,7 +37,7 @@ public class Water extends Ingredients {
     }
 
     /**
-     * Метод, для получения текущего количества единиц ингредиента
+     * Метод для получения текущего количества единиц ингредиента
      * @return unitQuantity - текущее количество единиц ингредиента
      */
     public double getUnitQuantity() {
@@ -45,7 +45,7 @@ public class Water extends Ingredients {
     }
 
     /**
-     * Метод, для изменения текущего количества единиц ингредиента
+     * Метод для изменения текущего количества единиц ингредиента
      * @param changeQuantity - число на которое необходимо изменить текущее количество единиц ингредиента
      */
     public void setUnitQuantity(double changeQuantity) throws NegativeIngredientsQuantityException {
@@ -56,7 +56,7 @@ public class Water extends Ingredients {
     }
 
     /**
-     * Метод, для получения наименования ингредиента
+     * Метод для получения наименования ингредиента
      * @return name - наименование ингредиента
      */
     public String getUnit() {
@@ -64,7 +64,7 @@ public class Water extends Ingredients {
     }
 
     /**
-     * Метод, для получения единицы измерения ингредиента
+     * Метод для получения единицы измерения ингредиента
      * @return unit - единица измерения ингредиента
      */
     public String getName() {

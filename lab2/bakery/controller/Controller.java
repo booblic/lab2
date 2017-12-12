@@ -19,7 +19,7 @@ public class Controller {
     private List<Event> eventList = new ArrayList<>();
 
     /**
-     * Метод, для добавления события в коллекцию событий
+     * Метод для добавления события в коллекцию событий
      * @param event - событие
      */
     public void addEvent(Event event) {
@@ -27,7 +27,7 @@ public class Controller {
     }
 
     /**
-     * Метод, для просмотра и запуска событий, готовых к исполнению
+     * Метод для просмотра и запуска событий, готовых к исполнению
      */
     public void run() throws ControllerException {
         while (eventList.size() > 0) {

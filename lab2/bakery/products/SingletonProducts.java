@@ -18,7 +18,7 @@ public class SingletonProducts {
     private SingletonProducts() {}
 
     /**
-     * Метод, для получания экземпляра продукта - хлеб
+     * Метод для получания экземпляра продукта - хлеб
      * @return  bread - экземпляр продукта - хлеб
      */
     public static Bread getBread() {
