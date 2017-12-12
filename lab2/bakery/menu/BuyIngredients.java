@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import lab2.bakery.accounting.Accounting;
+import lab2.bakery.constants.Constants;
 import lab2.bakery.exception.NegativeAccountBalanceException;
 import lab2.bakery.exception.NegativeIngredientsQuantityException;
 import lab2.bakery.ingredients.SingletoneIngredients;
@@ -21,17 +22,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import static lab2.bakery.ingredients.SingletoneIngredients.*;
 
 /**
- * Класс для первого пункта меню, соответсвующему считыванию выражения из файла
+ * Класс для закупки ингредиентов
  * @author Кирилл
  * @version 1.0
  */
 public class BuyIngredients extends MenuEntry {
 
-    private double money;
-
     /**
      * Конструктор вызывающий конструктор базового (абстрактного) класса
-     *
      * @param input - заглавие мпункта меню
      */
     public BuyIngredients(String input) {
@@ -39,9 +37,9 @@ public class BuyIngredients extends MenuEntry {
     }
 
     /**
-     * Метод содержащий последовательнсть действий пункта меню
+     * Метод, содержащий алгоритм для закупки ингредиентов, данные считываются из XML
      */
-    public void run() {
+    public void go() {
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -99,7 +97,6 @@ public class BuyIngredients extends MenuEntry {
                         }
 
                         Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
-                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getWater(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -116,7 +113,6 @@ public class BuyIngredients extends MenuEntry {
                         }
 
                         Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
-                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getSalt(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -133,7 +129,6 @@ public class BuyIngredients extends MenuEntry {
                         }
 
                         Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
-                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getVegetableOil(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -150,7 +145,6 @@ public class BuyIngredients extends MenuEntry {
                         }
 
                         Accounting.setMoney(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
-                        //getAccounting(-Double.parseDouble(unitPrices.item(i).getTextContent()) * quantity);
 
                         getYeast(Double.parseDouble(unitPrices.item(i).getTextContent()), quantity);
 
@@ -164,7 +158,7 @@ public class BuyIngredients extends MenuEntry {
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
-            System.out.println("Неверный ввод!");
+            System.out.println(Constants.INVALID_INPUT);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NegativeAccountBalanceException e) {

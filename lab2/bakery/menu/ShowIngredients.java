@@ -1,36 +1,36 @@
 package lab2.bakery.menu;
 
-import lab2.bakery.ingredients.*;
-
 import static lab2.bakery.ingredients.SingletoneIngredients.*;
 
+/**
+ * @author Кирилл
+ * @version 1.0
+ * Класс для отображения количества доступных ингредиентов
+ */
 public class ShowIngredients extends MenuEntry {
     /**
      * Конструктор вызывающий конструктор базового (абстрактного) класса
-     *
      * @param input - заглавие мпункта меню
      */
     public ShowIngredients(String input) {
         super(input);
     }
 
-    public void run() {
+    /**
+     * Метод, выводящий в консоль количество доступных ингредиентов
+     */
+    public void go() {
 
         System.out.println("Склад ингредиентов\n");
 
-        Flour flour = getFlour();
-        System.out.println(flour.getName() + ": " + String.format("%.2f", flour.getUnitQuantity()) + " (" + flour.getUnit() + ")");
+        System.out.println(getFlour().getName() + ": " + String.format("%.2f", getFlour().getUnitQuantity()) + " (" + getFlour().getUnit() + ")");
 
-        Salt salt = getSalt();
-        System.out.println(salt.getName() + ": " + String.format("%.2f", salt.getUnitQuantity()) + " (" + salt.getUnit() + ")");
+        System.out.println(getSalt().getName() + ": " + String.format("%.2f", getSalt().getUnitQuantity()) + " (" + getSalt().getUnit() + ")");
 
-        VegetableOil vegetableOil = getVegetableOil();
-        System.out.println(vegetableOil.getName() + ": " + String.format("%.2f", vegetableOil.getUnitQuantity()) + " (" + vegetableOil.getUnit() + ")");
+        System.out.println(getVegetableOil().getName() + ": " + String.format("%.2f", getVegetableOil().getUnitQuantity()) + " (" + getVegetableOil().getUnit() + ")");
 
-        Water water = getWater();
-        System.out.println(water.getName() + ": " + String.format("%.2f", water.getUnitQuantity()) + " (" + water.getUnit() + ")");
+        System.out.println(getWater().getName() + ": " + String.format("%.2f", getWater().getUnitQuantity()) + " (" + getWater().getUnit() + ")");
 
-        Yeast yeast = getYeast();
-        System.out.println(yeast.getName() + ": " + String.format("%.2f", yeast.getUnitQuantity()) + " (" + yeast.getUnit() + ")");
+        System.out.println(getYeast().getName() + ": " + String.format("%.2f", getYeast().getUnitQuantity()) + " (" + getYeast().getUnit() + ")");
     }
 }

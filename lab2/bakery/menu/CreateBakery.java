@@ -11,17 +11,14 @@ import lab2.bakery.constants.Constants;
 import lab2.bakery.exception.NegativeAccountBalanceException;
 
 /**
- * Класс для первого пункта меню, соответсвующему считыванию выражения из файла
+ * Класс для создания денежного счета хлебзавода
  * @author Кирилл
  * @version 1.0
  */
 public class CreateBakery extends MenuEntry {
 
-    private double money;
-
     /**
      * Конструктор вызывающий конструктор базового (абстрактного) класса
-     *
      * @param input - заглавие мпункта меню
      */
     public CreateBakery(String input) {
@@ -29,17 +26,22 @@ public class CreateBakery extends MenuEntry {
     }
 
     /**
-     * Метод содержащий последовательнсть действий пункта меню
+     * Метод, создающий счет хлебзавода
      */
-    public void run() {
-
-        Accounting accounting = null;
+    public void go() {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        double money = 0;
 
         try {
             System.out.print(Constants.ENTR_MENU_POINT);
             money = Integer.parseInt(reader.readLine());
+
+            if (money <= 0) {
+                System.out.println("Не верный ввод!");
+                return;
+            }
 
             Method method = Accounting.class.getDeclaredMethod("setMoney", double.class);
             if (method.isAnnotationPresent(MinFund.class)) {

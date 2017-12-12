@@ -31,5 +31,5 @@ public abstract class MenuEntry {
     /**
      * Абстрактный метод для запуска пункта меню
      */
-    public abstract void run();
+    public abstract void go();
 }

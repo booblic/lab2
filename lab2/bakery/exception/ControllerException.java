@@ -3,15 +3,15 @@ package lab2.bakery.exception;
 /**
  * @author Кирилл
  * @version 1.0
- * Класс исключения отрицательного количества ингредиентов на складе
+ * Класс исключения которое может генерировать метод run() класса Controller
  */
-public class NegativeIngredientsQuantityException extends ControllerException {
+public class ControllerException extends Exception {
 
     /**
      * Конструктор - передает конструктору суперкласса сообщение
      * @param message - сообщение, содержащее информацию об исключении
      */
-    public NegativeIngredientsQuantityException(String message) {
+    public ControllerException(String message) {
         super(message);
     }
 }

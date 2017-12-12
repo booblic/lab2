@@ -1,24 +1,41 @@
 package lab2.bakery.controller;
 
 import lab2.bakery.event.Event;
-import lab2.bakery.exception.NegativeIngredientsQuantityException;
-import lab2.bakery.exception.NegativeProductsQuantityException;
+import lab2.bakery.exception.ControllerException;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Кирилл
+ * @version 1.0
+ * Класс описывающий ссистему управления, которая распоряжается событиями и запускает их обработку
+ */
 public class Controller {
+
+    /**
+     * Коллекция для хранения событий
+     */
     private List<Event> eventList = new ArrayList<>();
-    public void addEvent(Event c) {
-        eventList.add(c);
+
+    /**
+     * Метод, для добавления события в коллекцию событий
+     * @param event - событие
+     */
+    public void addEvent(Event event) {
+        eventList.add(event);
     }
-    public void run() throws NegativeIngredientsQuantityException {
+
+    /**
+     * Метод, для просмотра и запуска событий, готовых к исполнению
+     */
+    public void run() throws ControllerException {
         while (eventList.size() > 0) {
-            for (Event e: new ArrayList<>(eventList)) {
-                if (e.ready()) {
-                    e.action();
-                    System.out.println(e);
-                    eventList.remove(e);
+            for (Event event: new ArrayList<>(eventList)) {
+                if (event.ready()) {
+                    event.action();
+                    System.out.println(event);
+                    eventList.remove(event);
                 }
             }
         }

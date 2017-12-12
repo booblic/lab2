@@ -30,7 +30,7 @@ public class Menu {
     public Menu() {
 
         entries.add(new MenuEntry("Выход.") {
-            public void run() {
+            public void go() {
                 isExit = true;
             }
         });
@@ -42,7 +42,7 @@ public class Menu {
     /**
      * Метод отображающий меню в консоле, считывающий номер пункта меню с клавиатуры и запускающий выполнение соответствующего пункта
      */
-    public void run() {
+    public void go() {
 
         while (!isExit) {
 
@@ -53,18 +53,18 @@ public class Menu {
                 String line = reader.readLine();
                 int choice = Integer.parseInt(line);
                 MenuEntry entry = entries.get(choice - 1);
-                entry.run();
+                entry.go();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (NumberFormatException e) {
-                System.out.println("Неверный ввод!");
+                System.out.println(Constants.INVALID_INPUT);
                 continue;
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Неверный ввод!");
+                System.out.println(Constants.INVALID_INPUT);
                 continue;
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Ошибка!");
+                System.out.println(Constants.ERROR);
             }
 
         }
@@ -72,6 +72,7 @@ public class Menu {
 
     /**
      * Метод для добавления пункта меню в коллекцию
+     * @param entry - новый пункт меню
      * @return объект класса производный от абстактного класса MenuEntry, соответствующий пункту меню
      */
     public static void addEntry(MenuEntry entry) {
@@ -89,6 +90,10 @@ public class Menu {
         entries.add(index, entry);
     }
 
+    /**
+     * Метод для удаления пункта меню из коллекции
+     * @param title - заглавие пункта меню, который нужно удалить
+     */
     public static void deleteEntry(String title) {
         for (int i = 0; i < entries.size(); i++) {
 

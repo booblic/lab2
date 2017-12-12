@@ -5,17 +5,25 @@ import lab2.bakery.products.*;
 
 import java.lang.reflect.Method;
 
+/**
+ * @author Кирилл
+ * @version 1.0
+ * Класс для отображения количества готовой продукции
+ */
 public class ShowProducts extends MenuEntry {
+
     /**
      * Конструктор вызывающий конструктор базового (абстрактного) класса
-     *
      * @param input - заглавие мпункта меню
      */
     public ShowProducts(String input) {
         super(input);
     }
 
-    public void run() {
+    /**
+     * Метод, выводящий в консоль количество готовой продукции
+     */
+    public void go() {
 
         if (SingletonProducts.getBread().getPrice() == 0) {
             Method method = null;

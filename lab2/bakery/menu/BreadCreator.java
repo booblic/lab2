@@ -4,26 +4,36 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import lab2.bakery.exception.NegativeIngredientsQuantityException;
+import lab2.bakery.constants.Constants;
+import lab2.bakery.exception.ControllerException;
 import lab2.bakery.mixer.*;
 import lab2.bakery.oven.OvenControls;
 import lab2.bakery.products.Bread;
 
-
+/**
+ * Класс для создания продукции - хлеб
+ * @author Кирилл
+ * @version 1.0
+ */
 public class BreadCreator extends MenuEntry {
 
+    /**
+     * Количество единиц продукции, которое планируется изготовить
+     */
     private int quantity;
 
     /**
      * Конструктор вызывающий конструктор базового (абстрактного) класса
-     *
      * @param input - заглавие мпункта меню
      */
     public BreadCreator(String input) {
         super(input);
     }
 
-    public void run() {
+    /**
+     * Метод, содержащий алгоритм для создания продукции - хлеб
+     */
+    public void go() {
 
         System.out.print("Введите количество буханок, которое планируется испечь: ");
 
@@ -33,6 +43,14 @@ public class BreadCreator extends MenuEntry {
             quantity = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println(Constants.INVALID_INPUT);
+            return;
+        }
+
+        if (quantity <= 0) {
+            System.out.println(Constants.INVALID_INPUT);
+            return;
         }
 
         if (quantity > BreadMixerControls.getSize()) {
@@ -49,7 +67,7 @@ public class BreadCreator extends MenuEntry {
                 breadMixerControls.addEvent(breadMixerControls.new Knead(5000));
                 try {
                     breadMixerControls.run();
-                } catch (NegativeIngredientsQuantityException e) {
+                } catch (ControllerException e) {
                     e.printStackTrace();
                     System.out.println("Закупите недостающие ингредиенты.");
                 }
@@ -64,7 +82,7 @@ public class BreadCreator extends MenuEntry {
                         ovenControls.addEvent(ovenControls.new Bake(10000, Bread.class));
                         try {
                             ovenControls.run();
-                        } catch (NegativeIngredientsQuantityException e) {
+                        } catch (ControllerException e) {
                             e.printStackTrace();
                         }
 
@@ -83,7 +101,7 @@ public class BreadCreator extends MenuEntry {
         breadMixerControls.addEvent(breadMixerControls.new Knead(5000));
         try {
             breadMixerControls.run();
-        } catch (NegativeIngredientsQuantityException e) {
+        } catch (ControllerException e) {
             System.out.println(e.getMessage());
             System.out.println("Закупите недостающие ингредиенты.");
             return;
@@ -101,7 +119,7 @@ public class BreadCreator extends MenuEntry {
 
                 try {
                     ovenControls.run();
-                } catch (NegativeIngredientsQuantityException e) {
+                } catch (ControllerException e) {
                     e.printStackTrace();
                 }
                 quantity -= OvenControls.getSize();
@@ -114,7 +132,7 @@ public class BreadCreator extends MenuEntry {
 
         try {
             ovenControls.run();
-        } catch (NegativeIngredientsQuantityException e) {
+        } catch (ControllerException e) {
             e.printStackTrace();
         }
 
